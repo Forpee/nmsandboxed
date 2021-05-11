@@ -2,8 +2,8 @@ import React, { Suspense, useState, useEffect } from 'react';
 import * as THREE from 'three';
 import { Canvas } from 'react-three-fiber';
 import { Physics } from 'use-cannon';
-import { Stars, Sky, /* Stats */ } from "@react-three/drei";
-import Moon from '../Moon/Moon';
+import { Stars, Sky,  Stats  } from "@react-three/drei";
+
 import Building from '../Building/Building';
 import Ground from '../Ground/Ground';
 import Art from '../Art/Art';
@@ -48,20 +48,12 @@ const App = () => {
       >
         <Camera fov={60} />
         
-        {night ? 
-          <>
-            <Stars />
-             <Suspense fallback={null}>
-                <Moon />
-             </Suspense>
-            <fog attach="fog" args={["#272730", 30, 250]}/>
-          </>
-          : 
+     
           <>
             <Sky sunPosition={[110, 170, -250]} /> 
             <fog attach="fog" args={["#f0f4f5", 30, 250]}/>
           </>
-        }
+        
 
         <Lights 
           night={night}
@@ -77,7 +69,7 @@ const App = () => {
           </Suspense>      
           <Player />       
         </Physics>
-        {/* <Stats  showPanel={0} /> */}
+         <Stats  showPanel={0} /> 
       </Canvas>
     </>
   );

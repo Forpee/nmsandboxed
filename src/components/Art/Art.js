@@ -18,14 +18,14 @@ const Art = () => {
         <Display position={[20, 5, 0]} size={[1, 18, 11]} />
            
         {/* creation of adam */}
-        <Picture 
+        {/* <Picture 
             url={"assets/3D/Hands/scene.gltf"}
             scale={[0.1, 0.1, 0.1]}
             position={[34.7, 12, 12]}            
             rotation={[0, -Math.PI / 2, Math.PI]}
             metalness={0}
             roughness={0.9}
-        />
+        /> */}
 
         {/* wedding */}
         <Picture 

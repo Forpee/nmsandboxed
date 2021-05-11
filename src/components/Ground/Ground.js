@@ -12,20 +12,8 @@ const Ground = () => {
         position: [0, 0.1, 22],
     }));
 
-    marbleMap = useMemo(() => new THREE.TextureLoader().load("assets/Textures/BazaltMarble/BAZALT-diffuse.jpg"), []);
-    marbleMap.wrapS = THREE.MirroredRepeatWrapping;
-    marbleMap.wrapT = THREE.MirroredRepeatWrapping;
-    marbleMap.repeat.set(size, size);
 
-    marbleAlphaMap = useMemo(() => new THREE.TextureLoader().load("assets/Textures/BazaltMarble/BAZALT-ao.jpg"), []);
-    marbleAlphaMap.wrapS = THREE.MirroredRepeatWrapping;
-    marbleAlphaMap.wrapT = THREE.MirroredRepeatWrapping;
-    marbleAlphaMap.repeat.set(size, size);
 
-    marbleNormalMap = useMemo(() => new THREE.TextureLoader().load("assets/Textures/BazaltMarble/BAZALT-normal.jpg"), []);
-    marbleNormalMap.wrapS = THREE.MirroredRepeatWrapping;
-    marbleNormalMap.wrapT = THREE.MirroredRepeatWrapping;
-    marbleNormalMap.repeat.set(size, size);
 
     grassMap = useMemo(() => new THREE.TextureLoader().load("assets/Textures/Grass/GrassGreenTexture0002.jpg"), []);
     grassMap.wrapS = THREE.RepeatWrapping;
@@ -35,33 +23,19 @@ const Ground = () => {
     return (
         <>
             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.3, 22]} >
-                <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
+                <planeBufferGeometry attach="geometry" args={[500, 500]} />
                 <meshLambertMaterial attach="material">
                     <primitive attach="map" object={grassMap} />
                 </meshLambertMaterial>
             </mesh>
             
             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.1, 22]} >
-                <Reflector>
+               
                     <planeBufferGeometry attach="geometry" args={[70, 75]}  />
-                </Reflector>
+               
             </mesh>
 
-            <mesh ref={ref} receiveShadow>
-                <planeBufferGeometry attach="geometry" args={[70, 75]} />
-                <meshPhysicalMaterial 
-                    attach="material"
-                    reflectivity={0}
-                    clearcoat={1}
-                    transparent
-                    roughness={0.5}
-                    metalness={0.3}
-                >
-                    <primitive attach="map" object={marbleMap} />
-                    <primitive attach="alphaMap" object={marbleAlphaMap} />
-                    <primitive attach="normalMap" object={marbleNormalMap} />
-                </meshPhysicalMaterial>
-            </mesh>
+
         </>
     );
 }
