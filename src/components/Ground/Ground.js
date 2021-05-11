@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import { usePlane } from "use-cannon";
 import * as THREE from 'three';
-import { Reflector } from '@react-three/drei';
+
 
 const Ground = () => {
-    let marbleAlphaMap, marbleMap, marbleNormalMap, grassMap;
-    const size = 4.6;
-
+    let  grassMap;
+    
+//eslint-disable-next-line
     const [ref] = usePlane(() => ({ 
         rotation: [-Math.PI / 2, 0, 0],
         position: [0, 0.1, 22],
