@@ -9,7 +9,7 @@ const PointerLockControls = (props) => {
     const controls = useRef()
 
     useEffect(() => {
-        document.addEventListener("click", () => {
+        document.getElementById('test').addEventListener("click", () => {
             controls.current.lock()
         })
     }, [])

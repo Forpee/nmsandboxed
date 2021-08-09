@@ -49,15 +49,16 @@ const App = () => {
         <Camera fov={60} />
         
      
+      
           <>
-            <Sky sunPosition={[110, 170, -250]} /> 
-            <fog attach="fog" args={["#f0f4f5", 30, 250]}/>
+            <Stars />
+            
+            <fog attach="fog" args={["#272730", 30, 250]}/>
           </>
-        
+         
 
         <Lights 
-          night={night}
-          performance={performance}
+         
         />
              
         <Physics gravity={[0, -30, 0]}>
@@ -69,7 +70,7 @@ const App = () => {
           </Suspense>      
           <Player />       
         </Physics>
-         <Stats  showPanel={0} /> 
+         
       </Canvas>
     </>
   );
